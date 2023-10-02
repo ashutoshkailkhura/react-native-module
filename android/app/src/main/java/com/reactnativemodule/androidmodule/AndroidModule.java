@@ -9,26 +9,19 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 
-public class CalendarModule extends ReactContextBaseJavaModule {
-    public CalendarModule(ReactApplicationContext context) {
+public class AndroidModule extends ReactContextBaseJavaModule {
+    public AndroidModule(ReactApplicationContext context) {
         super(context);
     }
 
-    // add to CalendarModule.java
     @NonNull
     @Override
     public String getName() {
-        return "CalendarModule";
+        return "AndroidModule";
     }
 
     @ReactMethod
-    public void createCalendarEvent(String name, String location, Callback callBack) {
-        Log.d(
-                "CalendarModule",
-                "Create event called with name: " + name
-                        + " and location: " + location);
-
-        Integer eventId = 420;
-        callBack.invoke(eventId);
+    public void createAndroidEvent(Integer number, Callback callBack) {
+        callBack.invoke(number * 10);
     }
 }
